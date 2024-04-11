@@ -1,4 +1,4 @@
-package com.example.beneficiariespractice.ui.fragment
+package com.example.beneficiariespractice.ui.fragment.DetailsFragment
 
 import android.content.Context
 import android.view.Gravity

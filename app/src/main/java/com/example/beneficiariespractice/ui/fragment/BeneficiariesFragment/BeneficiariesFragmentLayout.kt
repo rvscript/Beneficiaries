@@ -1,4 +1,4 @@
-package com.example.beneficiariespractice.ui.fragment
+package com.example.beneficiariespractice.ui.fragment.BeneficiariesFragment
 
 import android.content.Context
 import android.graphics.Color

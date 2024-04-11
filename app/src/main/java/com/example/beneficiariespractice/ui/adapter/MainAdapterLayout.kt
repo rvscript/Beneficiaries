@@ -1,9 +1,10 @@
-package com.example.beneficiariespractice.ui
+package com.example.beneficiariespractice.ui.adapter
 
 import android.content.Context
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.beneficiariespractice.utils.LayoutCreator
 
@@ -18,4 +19,15 @@ class MainAdapterLayout(contxt: Context): LayoutCreator(contxt) {
         )
         return mLayout
     }
+
+    fun createTextViewLayout(context: Context): TextView {
+        val textView = TextView(context)
+        textView.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        textView.textSize = 22F
+        return textView
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.example.beneficiariespractice.ui.fragment
+package com.example.beneficiariespractice.ui.fragment.BeneficiariesFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,10 +8,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.beneficiariespractice.data.models.BeneficiariesItem
 import com.example.beneficiariespractice.data.repos.MainRepositoryImpl
-import com.example.beneficiariespractice.ui.DetailsClickListener
-import com.example.beneficiariespractice.ui.MainAdapter
+import com.example.beneficiariespractice.ui.adapter.DetailsClickListener
+import com.example.beneficiariespractice.ui.adapter.MainAdapter
 import com.example.beneficiariespractice.ui.ViewModelFactory
 import com.example.beneficiariespractice.ui.activity.MainViewModel
+import com.example.beneficiariespractice.ui.fragment.DetailsFragment.DetailsFragment
 import com.example.beneficiariespractice.utils.Constants
 
 class BeneficiariesFragment : Fragment(), DetailsClickListener {

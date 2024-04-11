@@ -1,6 +1,5 @@
-package com.example.beneficiariespractice.ui
+package com.example.beneficiariespractice.ui.adapter
 
-import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
@@ -35,16 +34,18 @@ class MainAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
+
         mLayoutCreator = MainAdapterLayout(parent.context)
         mLayout = mLayoutCreator.createLinearLayout(height = LayoutParams.WRAP_CONTENT)
 
-        mTV_Name = createTextViewLayout(parent.context)
+        mTV_Name = mLayoutCreator.createTextViewLayout(parent.context)
         mLayout.addView(mTV_Name)
 
-        mTV_beneType = createTextViewLayout(parent.context)
+        mTV_beneType = mLayoutCreator.createTextViewLayout(parent.context)
         mLayout.addView(mTV_beneType)
 
-        mTV_designation = createTextViewLayout(parent.context)
+        mTV_designation = mLayoutCreator.createTextViewLayout(parent.context)
+        mTV_designation.setPadding(0,0,0, 40)
         mLayout.addView(mTV_designation)
 
         return MainViewHolder(mLayout)
@@ -54,16 +55,6 @@ class MainAdapter(
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         holder.bind(beneficiaries[position])
-    }
-
-    private fun createTextViewLayout(context: Context): TextView {
-        val textView = TextView(context)
-        textView.layoutParams = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
-        )
-        textView.textSize = 22F
-        return textView
     }
 
     private fun setDesignationCodeDescription(code: String): String {

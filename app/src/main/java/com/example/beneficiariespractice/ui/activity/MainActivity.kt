@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.beneficiariespractice.data.repos.MainRepositoryImpl
 import com.example.beneficiariespractice.ui.ViewModelFactory
-import com.example.beneficiariespractice.ui.fragment.BeneficiariesFragment
+import com.example.beneficiariespractice.ui.fragment.BeneficiariesFragment.BeneficiariesFragment
 
 class MainActivity : AppCompatActivity() {
     lateinit var viewModel: MainViewModel

@@ -7,8 +7,8 @@ dependencies: No added dependencies
 minSdk = 24, targetSdk = 34
 
 data package
-  - models:
-  - repos:
+  - models
+  - repos
 ui package
   - activity
     - MainActivity
@@ -17,7 +17,7 @@ ui package
   - adapter
     - MainAdapter
     - layout
-  - fragment:
+  - fragment
     - BeneficiariesFragment
       - fragment
       - layout
@@ -25,6 +25,7 @@ ui package
       - fragment
       - layout
   - viewModelFactory
+
 Utils
   - constants
   - LayoutCreator

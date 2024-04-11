@@ -2,39 +2,35 @@ package com.example.beneficiariespractice.ui.activity
 
 import android.os.Bundle
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.beneficiariespractice.data.models.Beneficiaries
 import com.example.beneficiariespractice.data.repos.MainRepositoryImpl
-import com.example.beneficiariespractice.ui.MainAdapter
-import com.example.beneficiariespractice.ui.MainViewModel
 import com.example.beneficiariespractice.ui.ViewModelFactory
-import java.io.IOException
+import com.example.beneficiariespractice.ui.fragment.BeneficiariesFragment
 
 class MainActivity : AppCompatActivity() {
     lateinit var viewModel: MainViewModel
-    lateinit var layoutClass: MainActivityLayout
+    lateinit var activityLayout: MainActivityLayout
     lateinit var layout: ViewGroup
+    lateinit var viewModelFactory: ViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this, ViewModelFactory(MainRepositoryImpl()))[MainViewModel::class.java]
-        layoutClass = MainActivityLayout(this@MainActivity, viewModel)
-        layout = layoutClass.createLayout()
+        viewModelFactory = ViewModelFactory(MainRepositoryImpl())
+        viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
+        activityLayout = MainActivityLayout(this@MainActivity, viewModel)
+        layout = activityLayout.createLayout()
         setContentView(layout)
-        createRecyclerView()
-    }
 
-    private fun createRecyclerView() {
-        val mRecyclerView = layoutClass.recyclerView
-        viewModel._data.observe(this) {
-            if (it.isNotEmpty()) {
-                mRecyclerView.apply {
-                    adapter = MainAdapter(it)
-                }
-            }
-        }
+        val fragmentBeneficiaries = BeneficiariesFragment()
+        val bundle = Bundle()
+        bundle.putInt("LAYOUT_ID", layout.id)
+        fragmentBeneficiaries.arguments = bundle
+
+        supportFragmentManager
+            .beginTransaction()
+            .replace(layout.id, fragmentBeneficiaries)
+            .commit()
     }
 }
 

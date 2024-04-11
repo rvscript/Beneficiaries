@@ -1,6 +1,11 @@
 package com.example.beneficiariespractice.utils
 
 object Constants {
+    const val CODE_PRIMARY = "Primary"
+    const val CODE_CONTIGENT = "Contigent"
+    const val CODE_NOT_AVAIL = "not available"
+    const val ARGS_KEY_LAYOUT_ID = "LAYOUT_ID"
+
     const val BENEFICIARIES = "[\n" +
             "  {\n" +
             "    \"lastName\": \"Smith\",\n" +

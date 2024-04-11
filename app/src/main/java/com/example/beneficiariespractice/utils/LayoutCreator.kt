@@ -8,12 +8,8 @@ import android.widget.RelativeLayout
 
 abstract class LayoutCreator (val context: Context) {
     // Function to create a linearlayout
-    fun createLinearLayout(orientation: Int = LinearLayout.VERTICAL): LinearLayout {
+    fun createLinearLayout(orientation: Int = LinearLayout.VERTICAL, width: Int = ViewGroup.LayoutParams.MATCH_PARENT, height: Int = ViewGroup.LayoutParams.MATCH_PARENT): LinearLayout {
         val linearLayout = LinearLayout(context)
-        linearLayout.layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.MATCH_PARENT
-        )
         linearLayout.orientation = orientation
         return linearLayout
     }
